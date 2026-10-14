@@ -1,0 +1,46 @@
+﻿@model UniqueStudio.Models.Booking
+
+@{
+    ViewBag.Title = "Edit Booking";
+}
+
+<div class="container mt-4">
+    <h2>Edit Booking</h2>
+    <hr />
+
+    @using (Html.BeginForm("Edit", "Booking", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.BookingId)
+
+        <div class="form-group mb-3">
+            <label class="control-label font-weight-bold">Customer</label>
+            @Html.DropDownListFor(model => model.CustomerId, Model.CustomerList, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="control-label font-weight-bold">Package</label>
+            @Html.DropDownListFor(model => model.PackageId, Model.PackageList, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="control-label font-weight-bold">Booking Date</label>
+            @Html.TextBoxFor(model => model.BookingDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="control-label font-weight-bold">Total Amount</label>
+            @Html.TextBoxFor(model => model.TotalAmount, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="control-label font-weight-bold">Status</label>
+            @Html.TextBoxFor(model => model.Status, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Update</button>
+            <a href="@Url.Action("Index", "Booking")" class="btn btn-secondary ml-2" style="margin-left: 10px;">Back to List</a>
+        </div>
+    }
+</div>

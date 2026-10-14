@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UniqueStudio.Models.Billing>
+
+@{
+    ViewData["Title"] = "Billings List";
+}
+
+<h1>Billings List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Billing</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Billing ID</th>
+            <th>Booking ID</th>
+            <th>Total Amount</th>
+            <th>Paid Amount</th>
+            <th>Payment Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BillingId</td>
+                <td>@item.BookingId</td>
+                <td>@item.TotalAmount</td>
+                <td>@item.PaidAmount</td>
+                <td>@item.PaymentStatus</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BillingId" class="btn btn-sm btn-warning">Edit</a> |
+                    <form asp-action="DeleteConfirmed" asp-route-id="@item.BillingId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this billing?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

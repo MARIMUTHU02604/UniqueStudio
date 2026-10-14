@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center my-5">
+    <h1 class="display-4 fw-bold">Welcome to UniqueStudio</h1>
+    <p class="lead text-muted">Manage your photography studio customers, bookings, events, packages, and billing seamlessly.</p>
+</div>
+
+<div class="row text-center mt-4">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title fw-bold">Customers</h5>
+                    <p class="card-text text-muted">Add and manage all your studio clients and their contact details.</p>
+                </div>
+                <a asp-controller="Customer" asp-action="Index" class="btn btn-primary mt-3">Manage Customers</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title fw-bold">Bookings</h5>
+                    <p class="card-text text-muted">Track client appointments, schedules, and event bookings.</p>
+                </div>
+                <a asp-controller="Booking" asp-action="Index" class="btn btn-primary mt-3">Manage Bookings</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title fw-bold">Events</h5>
+                    <p class="card-text text-muted">Configure various photography event types and categories.</p>
+                </div>
+                <a asp-controller="Events" asp-action="Index" class="btn btn-primary mt-3">Manage Events</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title fw-bold">Packages</h5>
+                    <p class="card-text text-muted">Set up pricing plans, bundles, and service packages.</p>
+                </div>
+                <a asp-controller="Package" asp-action="Index" class="btn btn-primary mt-3">Manage Packages</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title fw-bold">Billing</h5>
+                    <p class="card-text text-muted">Monitor invoices, payments, and financial statuses.</p>
+                </div>
+                <a asp-controller="Billing" asp-action="Index" class="btn btn-primary mt-3">Manage Billing</a>
+            </div>
+        </div>
+    </div>
+</div>

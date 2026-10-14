@@ -1,0 +1,40 @@
+﻿@model IEnumerable<UniqueStudio.Models.Booking>
+
+@{
+    ViewBag.Title = "Booking List";
+}
+
+<div class="container mt-4">
+    <h2>Bookings</h2>
+    <p>
+        <a href="@Url.Action("Create", "Booking")" class="btn btn-primary">Create New Booking</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Package</th>
+                <th>Booking Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CustomerName</td>
+                    <td>@item.PackageName</td>
+                    <td>@item.BookingDate.ToString("yyyy-MM-dd")</td>
+                    <td>@item.TotalAmount</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Booking", new { id = item.BookingId })" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="@Url.Action("Delete", "Booking", new { id = item.BookingId })" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UniqueStudioMvc.Models.Package>
+
+@{
+    ViewData["Title"] = "Package List";
+}
+
+<div class="container mt-4">
+    <h2>Package List</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New Package</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Package ID</th>
+                <th>Package Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PackageId</td>
+                    <td>@item.PackageName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PackageId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.PackageId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

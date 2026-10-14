@@ -1,0 +1,31 @@
+﻿@model UniqueStudioMvc.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+
+<div class="container mt-4">
+    <h2>Edit Customer</h2>
+    <hr />
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="CustomerId" />
+        <div class="mb-3">
+            <label class="form-label">Customer Name</label>
+            <input asp-for="CustomerName" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" type="email" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input asp-for="Phone" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
